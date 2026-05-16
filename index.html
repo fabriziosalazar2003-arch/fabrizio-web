@@ -4,13 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fabrizio Content | Fotografía Deportiva</title>
+    <!-- Importamos fuentes modernas y dinámicas desde Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,800&display=swap" rel="stylesheet">
+    
     <style>
         /* --- ESTILOS GLOBALES --- */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
+            font-family: 'Montserrat', sans-serif; /* Nueva fuente */
         }
 
         body {
@@ -30,24 +35,26 @@
             top: 0;
             left: 0;
             width: 100%;
-            background-color: rgba(13, 13, 13, 0.9);
+            background-color: rgba(13, 13, 13, 0.95);
+            backdrop-filter: blur(10px); /* Efecto esmerilado moderno */
             padding: 20px 50px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            border-bottom: 1px solid #222;
+            border-bottom: 1px solid #1a1a1a;
         }
 
         .logo {
             font-size: 24px;
-            font-weight: bold;
+            font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 2px;
         }
 
         .logo span {
             color: #ff3e3e;
+            font-style: italic; /* Toque deportivo al 'Content' */
         }
 
         nav ul {
@@ -63,6 +70,7 @@
             font-size: 14px;
             text-transform: uppercase;
             letter-spacing: 1px;
+            font-weight: 700;
             transition: color 0.3s;
         }
 
@@ -79,107 +87,121 @@
             align-items: center;
             text-align: center;
             padding: 0 20px;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.8)), url('651049018_18380718922088533_6386004123693636051_n.jpg') no-repeat center center/cover;
+            /* Ajustamos la opacidad del fondo para que el texto resalte mucho más */
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.85)), url('651049018_18380718922088533_6386004123693636051_n.jpg') no-repeat center center/cover;
         }
 
         .hero h1 {
-            font-size: 50px;
+            font-size: 60px;
+            font-weight: 800;
+            font-style: italic;
             text-transform: uppercase;
-            letter-spacing: 3px;
+            letter-spacing: 2px;
             margin-bottom: 20px;
-            text-shadow: 0px 4px 10px rgba(0,0,0,0.7);
+            text-shadow: 0px 4px 15px rgba(0,0,0,0.8);
         }
 
         .hero p {
             font-size: 18px;
-            max-width: 600px;
-            margin-bottom: 30px;
-            color: #ccc;
-            line-height: 1.6;
-            text-shadow: 0px 2px 5px rgba(0,0,0,0.9);
+            max-width: 650px;
+            margin-bottom: 35px;
+            color: #e0e0e0;
+            line-height: 1.7;
+            text-shadow: 0px 2px 8px rgba(0,0,0,1);
         }
 
+        /* Botón Estilizado */
         .btn {
             background-color: #ff3e3e;
             color: #fff;
-            padding: 12px 30px;
-            border-radius: 5px;
-            font-weight: bold;
+            padding: 15px 35px;
+            border-radius: 4px;
+            font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1px;
-            transition: background 0.3s, transform 0.2s;
+            transition: all 0.3s ease;
+            box-shadow: 0px 4px 15px rgba(255, 62, 62, 0.4);
         }
 
         .btn:hover {
             background-color: #e03232;
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            box-shadow: 0px 6px 20px rgba(255, 62, 62, 0.6);
         }
 
         /* --- SECCIÓN PORTAFOLIO (GALERÍA GRID) --- */
         .portfolio {
-            padding: 100px 50px;
+            padding: 120px 50px 80px;
             max-width: 1400px;
             margin: 0 auto;
         }
 
         .section-title {
             text-align: center;
-            font-size: 32px;
+            font-size: 36px;
+            font-weight: 800;
+            font-style: italic;
             text-transform: uppercase;
             letter-spacing: 2px;
-            margin-bottom: 50px;
+            margin-bottom: 60px;
             position: relative;
         }
 
         .section-title::after {
             content: '';
             display: block;
-            width: 50px;
-            height: 3px;
+            width: 60px;
+            height: 4px;
             background-color: #ff3e3e;
-            margin: 10px auto 0;
+            margin: 15px auto 0;
         }
 
+        /* Galería con columnas más dinámicas */
         .gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
         }
 
         .gallery-item {
             position: relative;
             overflow: hidden;
             border-radius: 8px;
-            height: 250px;
-            background-color: #1a1a1a;
-            border: 1px solid #222;
+            height: 300px; /* Un poco más alta para apreciar mejor las fotos */
+            background-color: #161616;
+            border: 1px solid #1a1a1a;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
         }
 
         .gallery-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s;
+            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
         }
 
+        /* Zoom suave al pasar el mouse */
         .gallery-item:hover img {
-            transform: scale(1.08);
+            transform: scale(1.05);
         }
 
         /* --- SECCIÓN CONTACTO --- */
         .contact {
             background-color: #111;
-            padding: 100px 20px;
+            padding: 120px 20px;
             text-align: center;
+            border-top: 1px solid #1a1a1a;
         }
 
         .contact p {
-            font-size: 18px;
-            margin-bottom: 30px;
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto 40px;
             color: #ccc;
+            line-height: 1.6;
         }
 
-        /* --- SECCIÓN NUEVA: REDES SOCIALES --- */
+        /* --- SECCIÓN REDES SOCIALES --- */
         .social-section {
             background-color: #0d0d0d;
             padding: 60px 20px;
@@ -188,29 +210,30 @@
         }
 
         .social-section p {
-            font-size: 16px;
-            color: #aaa;
-            margin-bottom: 20px;
+            font-size: 14px;
+            color: #888;
+            margin-bottom: 25px;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
+            font-weight: 700;
         }
 
         .social-links {
             display: flex;
             justify-content: center;
-            gap: 40px;
+            gap: 30px;
         }
 
         .social-icon {
             display: inline-block;
-            transition: transform 0.3s;
+            transition: transform 0.3s ease;
         }
 
         .social-icon svg {
-            width: 40px;
-            height: 40px;
+            width: 35px;
+            height: 35px;
             fill: #ffffff;
-            transition: fill 0.3s;
+            transition: fill 0.3s ease;
         }
 
         .social-icon:hover {
@@ -218,10 +241,10 @@
         }
 
         .social-icon:hover svg {
-            fill: #ff3e3e; /* Los logos se vuelven rojos al pasar el mouse */
+            fill: #ff3e3e;
         }
 
-        /* --- BOTÓN FLOTANTE DE WHATSAPP --- */
+        /* --- BOTÓN FLOTANTE DE WHATSAPP (CON LOGO OFICIAL SVG) --- */
         .whatsapp-float {
             position: fixed;
             bottom: 30px;
@@ -230,37 +253,34 @@
             color: #fff;
             width: 60px;
             height: 60px;
-            border-radius: 50px;
-            text-align: center;
-            font-size: 30px;
-            box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
-            z-index: 1000;
+            border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
-            transition: transform 0.3s, background-color 0.3s;
+            box-shadow: 0px 4px 15px rgba(0,0,0,0.4);
+            z-index: 1000;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .whatsapp-float svg {
+            width: 32px;
+            height: 32px;
+            fill: #fff;
         }
 
         .whatsapp-float:hover {
-            transform: scale(1.1);
+            transform: scale(1.1) translateY(-3px);
             background-color: #20ba5a;
-        }
-
-        .whatsapp-icon {
-            font-weight: bold;
-            font-family: Arial, sans-serif;
-            font-size: 14px;
-            text-transform: uppercase;
         }
 
         /* --- FOOTER --- */
         footer {
-            background-color: #0d0d0d;
+            background-color: #050505;
             text-align: center;
             padding: 30px;
-            font-size: 14px;
-            color: #666;
-            border-top: 1px solid #222;
+            font-size: 13px;
+            color: #555;
+            border-top: 1px solid #111;
         }
 
         /* --- RESPONSIVO --- */
@@ -271,19 +291,37 @@
                 gap: 15px;
             }
             nav ul li {
-                margin: 0 15px;
+                margin: 0 12px;
             }
             .hero h1 {
-                font-size: 35px;
+                font-size: 38px;
+            }
+            .hero p {
+                font-size: 16px;
             }
             .portfolio {
-                padding: 80px 20px;
+                padding: 80px 20px 40px;
+            }
+            .section-title {
+                font-size: 28px;
+                margin-bottom: 40px;
+            }
+            .gallery {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 15px;
+            }
+            .gallery-item {
+                height: 240px;
             }
             .whatsapp-float {
                 bottom: 20px;
                 right: 20px;
-                width: 50px;
-                height: 50px;
+                width: 55px;
+                height: 55px;
+            }
+            .whatsapp-float svg {
+                width: 28px;
+                height: 28px;
             }
         }
     </style>
@@ -310,21 +348,20 @@
     <section id="portafolio" class="portfolio">
         <h2 class="section-title">Mi Trabajo</h2>
         <div class="gallery">
-            <div class="gallery-item"><img src="491446664_18337799230088533_5457409335966086916_n.jpg" alt="Foto 1"></div>
-            <div class="gallery-item"><img src="495017181_18338975959088533_2855156653980885627_n.jpg" alt="Foto 2"></div>
-            <div class="gallery-item"><img src="496742548_18339828100088533_7115574978946600612_n.jpg" alt="Foto 3"></div>
-            <div class="gallery-item"><img src="497562029_18340313947088533_5878051404677447470_n.jpg" alt="Foto 4"></div>
-            <div class="gallery-item"><img src="514150562_23920902770903367_4381786438240198961_n.jpg" alt="Foto 5"></div>
-            <div class="gallery-item"><img src="569938065_18359402911088533_7873600168460185016_n.jpg" alt="Foto 6"></div>
-            <div class="gallery-item"><img src="651049018_18380718922088533_6386004123693636051_n.jpg" alt="Foto 7"></div>
-            <div class="gallery-item"><img src="651053465_18380718898088533_838469125011950965_n.jpg" alt="Foto 8"></div>
-
-            <div class="gallery-item"><img src="466609719_18318084445088533_6058158820125407134_n.jpg" alt="Foto 9"></div>
-            <div class="gallery-item"><img src="486115920_18334026316088533_7366793891365439087_n.jpg" alt="Foto 10"></div>
-            <div class="gallery-item"><img src="495081539_18338975968088533_4753863174377754517_n.jpg" alt="Foto 11"></div>
-            <div class="gallery-item"><img src="514371924_23920903174236660_7041139453703729951_n.jpg" alt="Foto 12"></div>
-            <div class="gallery-item"><img src="559858725_18356237482088533_1957992941322025113_n.jpg" alt="Foto 13"></div>
-            <div class="gallery-item"><img src="571949173_18359618665088533_5852072700705258342_n.jpg" alt="Foto 14"></div>
+            <div class="gallery-item"><img src="491446664_18337799230088533_5457409335966086916_n.jpg" alt="Fotografía de acción deportiva por Fabrizio Content"></div>
+            <div class="gallery-item"><img src="495017181_18338975959088533_2855156653980885627_n.jpg" alt="Fotografía deportiva profesional"></div>
+            <div class="gallery-item"><img src="496742548_18339828100088533_7115574978946600612_n.jpg" alt="Captura de momento clave en evento deportivo"></div>
+            <div class="gallery-item"><img src="497562029_18340313947088533_5878051404677447470_n.jpg" alt="Fotografía de fútbol de alta intensidad"></div>
+            <div class="gallery-item"><img src="514150562_23920902770903367_4381786438240198961_n.jpg" alt="Cobertura fotográfica de torneo deportivo"></div>
+            <div class="gallery-item"><img src="569938065_18359402911088533_7873600168460185016_n.jpg" alt="Detalle de jugada deportiva en alta definición"></div>
+            <div class="gallery-item"><img src="651049018_18380718922088533_6386004123693636051_n.jpg" alt="Emoción y pasión en el deporte - Fabrizio Content"></div>
+            <div class="gallery-item"><img src="651053465_18380718898088533_838469125011950965_n.jpg" alt="Fotografía profesional de atletas"></div>
+            <div class="gallery-item"><img src="466609719_18318084445088533_6058158820125407134_n.jpg" alt="Fotografía de partido de fútbol"></div>
+            <div class="gallery-item"><img src="486115920_18334026316088533_7366793891365439087_n.jpg" alt="Momento exacto del juego congelado en cámara"></div>
+            <div class="gallery-item"><img src="495081539_18338975968088533_4753863174377754517_n.jpg" alt="Gesto técnico de deportista en competencia"></div>
+            <div class="gallery-item"><img src="514371924_23920903174236660_7041139453703729951_n.jpg" alt="Celebración de gol o victoria en el campo"></div>
+            <div class="gallery-item"><img src="559858725_18356237482088533_1957992941322025113_n.jpg" alt="Fotografía de marcas y patrocinadores deportivos"></div>
+            <div class="gallery-item"><img src="571949173_18359618665088533_5852072700705258342_n.jpg" alt="Retrato o acción de atleta de alto rendimiento"></div>
         </div>
     </section>
 
@@ -346,8 +383,11 @@
         </div>
     </section>
 
-    <a href="https://wa.me/51977370932?text=Hola%20Fabrizio,%20vi%20tu%20p%C3%A1gina%20web%20y%20me%20gustar%C3%ADa%20más%20información." class="whatsapp-float" target="_blank" title="Hablemos por WhatsApp">
-        <span class="whatsapp-icon">WA</span>
+    <!-- Botón de WhatsApp optimizado con SVG oficial -->
+    <a href="https://wa.me/51977370932?text=Hola%20Fabrizio,%20vi%20tu%20p%C3%A1gina%20web%20y%20me%20gustar%C3%ADa%20m%C3%A1s%20informaci%C3%B3n." class="whatsapp-float" target="_blank" title="Hablemos por WhatsApp">
+        <svg viewBox="0 0 24 24">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397 0 12.008 0c3.202.001 6.212 1.248 8.477 3.514 2.266 2.265 3.51 5.276 3.509 8.479-.004 6.657-5.34 12.001-11.952 12.001-2.005-.001-3.975-.502-5.717-1.454L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.742.002-2.602-1.01-5.05-2.85-6.892C16.639 2.129 14.192 1.119 11.59 1.121c-5.438 0-9.863 4.373-9.867 9.746-.001 1.702.469 3.361 1.358 4.842l-.989 3.614 3.708-.961zm12.115-4.508c-.333-.167-1.972-.974-2.277-1.086-.306-.111-.528-.167-.75.167-.222.334-.861 1.086-1.055 1.306-.195.222-.389.25-.722.083-1.638-.82-2.736-1.343-3.834-3.222-.29-.497.29-.461.83-1.542.091-.184.045-.347-.023-.486-.068-.139-.528-1.278-.722-1.745-.189-.456-.38-.393-.528-.401-.136-.006-.292-.007-.449-.007-.156 0-.412.058-.628.291-.216.233-.825.806-.825 1.965 0 1.16.843 2.279.961 2.438.118.159 1.659 2.534 4.021 3.556.562.242 1.002.387 1.343.495.565.179 1.079.154 1.486.094.453-.066 1.972-.806 2.25-1.584.278-.778.278-1.445.194-1.584-.083-.139-.306-.222-.639-.389z"/>
+        </svg>
     </a>
 
     <footer>

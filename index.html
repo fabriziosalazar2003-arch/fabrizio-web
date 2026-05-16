@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fabrizio Content | Fotografía Deportiva</title>
-    <!-- Importamos fuentes modernas y dinámicas desde Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,800&display=swap" rel="stylesheet">
@@ -15,7 +14,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Montserrat', sans-serif; /* Nueva fuente */
+            font-family: 'Montserrat', sans-serif;
         }
 
         body {
@@ -54,7 +53,7 @@
 
         .logo span {
             color: #ff3e3e;
-            font-style: italic; /* Toque deportivo al 'Content' */
+            font-style: italic;
         }
 
         nav ul {
@@ -87,7 +86,6 @@
             align-items: center;
             text-align: center;
             padding: 0 20px;
-            /* Ajustamos la opacidad del fondo para que el texto resalte mucho más */
             background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.85)), url('651049018_18380718922088533_6386004123693636051_n.jpg') no-repeat center center/cover;
         }
 
@@ -129,11 +127,104 @@
             box-shadow: 0px 6px 20px rgba(255, 62, 62, 0.6);
         }
 
+        /* --- SECCIÓN NUEVA: SOBRE MÍ --- */
+        .about-section {
+            padding: 120px 50px 80px;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-image {
+            width: 100%;
+            max-height: 550px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0px 10px 30px rgba(0,0,0,0.5);
+            border: 2px solid #1a1a1a;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .about-content h2 {
+            font-size: 36px;
+            font-weight: 800;
+            font-style: italic;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .about-content h2 span {
+            color: #ff3e3e;
+        }
+
+        .about-content .subtitle {
+            font-size: 14px;
+            text-transform: uppercase;
+            color: #888;
+            letter-spacing: 2px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            display: block;
+        }
+
+        .about-content p {
+            font-size: 17px;
+            color: #ccc;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .highlight-box {
+            background-color: #111;
+            border-left: 4px solid #ff3e3e;
+            padding: 20px;
+            margin-top: 30px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .highlight-box h3 {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .highlight-box ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .highlight-box ul li {
+            font-size: 14px;
+            color: #aaa;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .highlight-box ul li::before {
+            content: '⚡';
+            font-size: 12px;
+        }
+
         /* --- SECCIÓN PORTAFOLIO (GALERÍA GRID) --- */
         .portfolio {
-            padding: 120px 50px 80px;
+            padding: 100px 50px 80px;
             max-width: 1400px;
             margin: 0 auto;
+            border-top: 1px solid #1a1a1a;
         }
 
         .section-title {
@@ -156,7 +247,6 @@
             margin: 15px auto 0;
         }
 
-        /* Galería con columnas más dinámicas */
         .gallery {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -167,7 +257,7 @@
             position: relative;
             overflow: hidden;
             border-radius: 8px;
-            height: 300px; /* Un poco más alta para apreciar mejor las fotos */
+            height: 300px;
             background-color: #161616;
             border: 1px solid #1a1a1a;
             box-shadow: 0 4px 10px rgba(0,0,0,0.3);
@@ -180,7 +270,6 @@
             transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
         }
 
-        /* Zoom suave al pasar el mouse */
         .gallery-item:hover img {
             transform: scale(1.05);
         }
@@ -244,74 +333,116 @@
             fill: #ff3e3e;
         }
 
-/* --- BOTÓN FLOTANTE DE WHATSAPP OPTIMIZADO --- */
-.whatsapp-float {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    background-color: #25d366;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0px 4px 15px rgba(37, 211, 102, 0.4);
-    z-index: 1000;
-    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
-}
+        /* --- BOTÓN FLOTANTE DE WHATSAPP --- */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0px 4px 15px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+        }
 
-/* El icono SVG dentro del botón */
-.whatsapp-float svg {
-    width: 32px;
-    height: 32px;
-    fill: #ffffff;
-}
+        .whatsapp-float svg {
+            width: 32px;
+            height: 32px;
+            fill: #ffffff;
+        }
 
-/* Animación de pulso (Efecto ondas de radar) */
-.whatsapp-float::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: #25d366;
-    border-radius: 50%;
-    z-index: -1;
-    animation: pulseWhatsApp 2s infinite;
-}
+        .whatsapp-float::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: #25d366;
+            border-radius: 50%;
+            z-index: -1;
+            animation: pulseWhatsApp 2s infinite;
+        }
 
-/* Efectos al pasar el mouse (Hover) */
-.whatsapp-float:hover {
-    transform: scale(1.1) translateY(-5px);
-    background-color: #20ba5a;
-    box-shadow: 0px 8px 20px rgba(32, 186, 90, 0.6);
-}
+        .whatsapp-float:hover {
+            transform: scale(1.1) translateY(-5px);
+            background-color: #20ba5a;
+            box-shadow: 0px 8px 20px rgba(32, 186, 90, 0.6);
+        }
 
-/* Definición de la animación de pulso */
-@keyframes pulseWhatsApp {
-    0% {
-        transform: scale(1);
-        opacity: 0.5;
-    }
-    100% {
-        transform: scale(1.6);
-        opacity: 0;
-    }
-}
+        @keyframes pulseWhatsApp {
+            0% {
+                transform: scale(1);
+                opacity: 0.5;
+            }
+            100% {
+                transform: scale(1.6);
+                opacity: 0;
+            }
+        }
 
-/* Ajuste para celulares */
-@media (max-width: 768px) {
-    .whatsapp-float {
-        bottom: 20px;
-        right: 20px;
-        width: 55px;
-        height: 55px;
-    }
-    .whatsapp-float svg {
-        width: 28px;
-        height: 28px;
-    }
-}
+        /* --- RESPONSIVO --- */
+        @media (max-width: 992px) {
+            .about-section {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 40px;
+            }
+            .about-image {
+                max-width: 450px;
+                margin: 0 auto;
+            }
+            .highlight-box ul {
+                text-align: left;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 20px;
+                flex-direction: column;
+                gap: 15px;
+            }
+            nav ul li {
+                margin: 0 10px;
+            }
+            .hero h1 {
+                font-size: 38px;
+            }
+            .hero p {
+                font-size: 16px;
+            }
+            .about-section, .portfolio {
+                padding: 80px 20px 40px;
+            }
+            .section-title {
+                font-size: 28px;
+                margin-bottom: 40px;
+            }
+            .gallery {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 15px;
+            }
+            .gallery-item {
+                height: 240px;
+            }
+            .highlight-box ul {
+                grid-template-columns: 1fr;
+            }
+            .whatsapp-float {
+                bottom: 20px;
+                right: 20px;
+                width: 55px;
+                height: 55px;
+            }
+            .whatsapp-float svg {
+                width: 28px;
+                height: 28px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -321,6 +452,7 @@
         <nav>
             <ul>
                 <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#sobre-mi">Sobre Mí</a></li>
                 <li><a href="#portafolio">Portafolio</a></li>
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
@@ -331,6 +463,27 @@
         <h1>Fotografía Deportiva</h1>
         <p>Capturo la intensidad, el esfuerzo y la gloria en su estado más puro. Congelando la adrenalina de ese segundo exacto que define la historia de un partido.</p>
         <a href="https://wa.me/51977370932?text=Hola%20Fabrizio,%20vi%20tu%20p%C3%A1gina%20web%20y%20me%20gustar%C3%ADa%20cotizar%20una%20cobertura%20fotogr%C3%A1fica." target="_blank" class="btn">Contratar Servicios</a>
+    </section>
+
+    <section id="sobre-mi" class="about-section">
+        <div class="about-image">
+           <img src="5AA91396-F757-4692-AA5F-7246A26AAB20.JPG.jpeg" alt="Fabrizio - Fotógrafo Deportivo Profesional">
+        </div>
+        <div class="about-content">
+            <h2>Hola, soy <span>Fabrizio</span></h2>
+            <span class="subtitle">Fotógrafo Deportivo</span>
+            <p>Cuento con 2 años de experiencia dedicados por completo a congelar los momentos más vibrantes y competitivos de la escena atlética. Mi enfoque busca capturar no solo la jugada, sino la pasión, la garra y la disciplina detrás de cada deportista en el campo de juego.</p>
+            
+            <div class="highlight-box">
+                <h3>Torneos y Eventos Coberturados:</h3>
+                <ul>
+                    <li>Liga de SJM</li>
+                    <li>FEDUP Voley Varonil</li>
+                    <li>Academia San Martín</li>
+                    <li>Copa ADECOSUR</li>
+                </ul>
+            </div>
+        </div>
     </section>
 
     <section id="portafolio" class="portfolio">
@@ -371,12 +524,11 @@
         </div>
     </section>
 
-    <!-- Botón de WhatsApp optimizado con SVG oficial -->
     <a href="https://wa.me/51977370932?text=Hola%20Fabrizio,%20vi%20tu%20p%C3%A1gina%20web%20y%20me%20gustar%C3%ADa%20m%C3%A1s%20informaci%C3%B3n." class="whatsapp-float" target="_blank" title="Hablemos por WhatsApp">
-    <svg viewBox="0 0 24 24">
-        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397 0 12.008 0c3.202.001 6.212 1.248 8.477 3.514 2.266 2.265 3.51 5.276 3.509 8.479-.004 6.657-5.34 12.001-11.952 12.001-2.005-.001-3.975-.502-5.717-1.454L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.742.002-2.602-1.01-5.05-2.85-6.892C16.639 2.129 14.192 1.119 11.59 1.121c-5.438 0-9.863 4.373-9.867 9.746-.001 1.702.469 3.361 1.358 4.842l-.989 3.614 3.708-.961zm12.115-4.508c-.333-.167-1.972-.974-2.277-1.086-.306-.111-.528-.167-.75.167-.222.334-.861 1.086-1.055 1.306-.195.222-.389.25-.722.083-1.638-.82-2.736-1.343-3.834-3.222-.29-.497.29-.461.83-1.542.091-.184.045-.347-.023-.486-.068-.139-.528-1.278-.722-1.745-.189-.456-.38-.393-.528-.401-.136-.006-.292-.007-.449-.007-.156 0-.412.058-.628.291-.216.233-.825.806-.825 1.965 0 1.16.843 2.279.961 2.438.118.159 1.659 2.534 4.021 3.556.562.242 1.002.387 1.343.495.565.179 1.079.154 1.486.094.453-.066 1.972-.806 2.25-1.584.278-.778.278-1.445.194-1.584-.083-.139-.306-.222-.639-.389z"/>
-    </svg>
-</a>
+        <svg viewBox="0 0 24 24">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397 0 12.008 0c3.202.001 6.212 1.248 8.477 3.514 2.266 2.265 3.51 5.276 3.509 8.479-.004 6.657-5.34 12.001-11.952 12.001-2.005-.001-3.975-.502-5.717-1.454L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.742.002-2.602-1.01-5.05-2.85-6.892C16.639 2.129 14.192 1.119 11.59 1.121c-5.438 0-9.863 4.373-9.867 9.746-.001 1.702.469 3.361 1.358 4.842l-.989 3.614 3.708-.961zm12.115-4.508c-.333-.167-1.972-.974-2.277-1.086-.306-.111-.528-.167-.75.167-.222.334-.861 1.086-1.055 1.306-.195.222-.389.25-.722.083-1.638-.82-2.736-1.343-3.834-3.222-.29-.497.29-.461.83-1.542.091-.184.045-.347-.023-.486-.068-.139-.528-1.278-.722-1.745-.189-.456-.38-.393-.528-.401-.136-.006-.292-.007-.449-.007-.156 0-.412.058-.628.291-.216.233-.825.806-.825 1.965 0 1.16.843 2.279.961 2.438.118.159 1.659 2.534 4.021 3.556.562.242 1.002.387 1.343.495.565.179 1.079.154 1.486.094.453-.066 1.972-.806 2.25-1.584.278-.778.278-1.445.194-1.584-.083-.139-.306-.222-.639-.389z"/>
+        </svg>
+    </a>
 
     <footer>
         <p>&copy; 2026 Fabrizio Content. Todos los derechos reservados.</p>

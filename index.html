@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fabrizio Content | Fotografía Deportiva</title>
+    <style>
+        /* --- ESTILOS GLOBALES --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #0d0d0d;
+            color: #ffffff;
+            scroll-behavior: smooth;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* --- MENÚ DE NAVEGACIÓN --- */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(13, 13, 13, 0.9);
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid #222;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: #ff3e3e;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ff3e3e;
+        }
+
+        /* --- SECCIÓN INICIO (HERO) --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.8)), url('651049018_18380718922088533_6386004123693636051_n.jpg') no-repeat center center/cover;
+        }
+
+        .hero h1 {
+            font-size: 50px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+            text-shadow: 0px 4px 10px rgba(0,0,0,0.7);
+        }
+
+        .hero p {
+            font-size: 18px;
+            max-width: 600px;
+            margin-bottom: 30px;
+            color: #ccc;
+            line-height: 1.6;
+            text-shadow: 0px 2px 5px rgba(0,0,0,0.9);
+        }
+
+        .btn {
+            background-color: #ff3e3e;
+            color: #fff;
+            padding: 12px 30px;
+            border-radius: 5px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .btn:hover {
+            background-color: #e03232;
+            transform: translateY(-2px);
+        }
+
+        /* --- SECCIÓN PORTAFOLIO (GALERÍA GRID) --- */
+        .portfolio {
+            padding: 100px 50px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: #ff3e3e;
+            margin: 10px auto 0;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            height: 250px;
+            background-color: #1a1a1a;
+            border: 1px solid #222;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+
+        /* --- SECCIÓN CONTACTO --- */
+        .contact {
+            background-color: #111;
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .contact p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: #ccc;
+        }
+
+        /* --- SECCIÓN NUEVA: REDES SOCIALES --- */
+        .social-section {
+            background-color: #0d0d0d;
+            padding: 60px 20px;
+            text-align: center;
+            border-top: 1px solid #1a1a1a;
+        }
+
+        .social-section p {
+            font-size: 16px;
+            color: #aaa;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        .social-icon {
+            display: inline-block;
+            transition: transform 0.3s;
+        }
+
+        .social-icon svg {
+            width: 40px;
+            height: 40px;
+            fill: #ffffff;
+            transition: fill 0.3s;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-5px);
+        }
+
+        .social-icon:hover svg {
+            fill: #ff3e3e; /* Los logos se vuelven rojos al pasar el mouse */
+        }
+
+        /* --- BOTÓN FLOTANTE DE WHATSAPP --- */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: #fff;
+            width: 60px;
+            height: 60px;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            background-color: #20ba5a;
+        }
+
+        .whatsapp-icon {
+            font-weight: bold;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #0d0d0d;
+            text-align: center;
+            padding: 30px;
+            font-size: 14px;
+            color: #666;
+            border-top: 1px solid #222;
+        }
+
+        /* --- RESPONSIVO --- */
+        @media (max-width: 768px) {
+            header {
+                padding: 20px;
+                flex-direction: column;
+                gap: 15px;
+            }
+            nav ul li {
+                margin: 0 15px;
+            }
+            .hero h1 {
+                font-size: 35px;
+            }
+            .portfolio {
+                padding: 80px 20px;
+            }
+            .whatsapp-float {
+                bottom: 20px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Fabrizio<span>Content</span></div>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#portafolio">Portafolio</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="inicio" class="hero">
+        <h1>Fotografía Deportiva</h1>
+        <p>Capturo la intensidad, el esfuerzo y la gloria en su estado más puro. Congelando la adrenalina de ese segundo exacto que define la historia de un partido.</p>
+        <a href="https://wa.me/51977370932?text=Hola%20Fabrizio,%20vi%20tu%20p%C3%A1gina%20web%20y%20me%20gustar%C3%ADa%20cotizar%20una%20cobertura%20fotogr%C3%A1fica." target="_blank" class="btn">Contratar Servicios</a>
+    </section>
+
+    <section id="portafolio" class="portfolio">
+        <h2 class="section-title">Mi Trabajo</h2>
+        <div class="gallery">
+            <div class="gallery-item"><img src="491446664_18337799230088533_5457409335966086916_n.jpg" alt="Foto 1"></div>
+            <div class="gallery-item"><img src="495017181_18338975959088533_2855156653980885627_n.jpg" alt="Foto 2"></div>
+            <div class="gallery-item"><img src="496742548_18339828100088533_7115574978946600612_n.jpg" alt="Foto 3"></div>
+            <div class="gallery-item"><img src="497562029_18340313947088533_5878051404677447470_n.jpg" alt="Foto 4"></div>
+            <div class="gallery-item"><img src="514150562_23920902770903367_4381786438240198961_n.jpg" alt="Foto 5"></div>
+            <div class="gallery-item"><img src="569938065_18359402911088533_7873600168460185016_n.jpg" alt="Foto 6"></div>
+            <div class="gallery-item"><img src="651049018_18380718922088533_6386004123693636051_n.jpg" alt="Foto 7"></div>
+            <div class="gallery-item"><img src="651053465_18380718898088533_838469125011950965_n.jpg" alt="Foto 8"></div>
+
+            <div class="gallery-item"><img src="466609719_18318084445088533_6058158820125407134_n.jpg" alt="Foto 9"></div>
+            <div class="gallery-item"><img src="486115920_18334026316088533_7366793891365439087_n.jpg" alt="Foto 10"></div>
+            <div class="gallery-item"><img src="495081539_18338975968088533_4753863174377754517_n.jpg" alt="Foto 11"></div>
+            <div class="gallery-item"><img src="514371924_23920903174236660_7041139453703729951_n.jpg" alt="Foto 12"></div>
+            <div class="gallery-item"><img src="559858725_18356237482088533_1957992941322025113_n.jpg" alt="Foto 13"></div>
+            <div class="gallery-item"><img src="571949173_18359618665088533_5852072700705258342_n.jpg" alt="Foto 14"></div>
+        </div>
+    </section>
+
+    <section id="contacto" class="contact">
+        <h2 class="section-title">¿Tienes un evento o partido?</h2>
+        <p>Disponible para cobertura de clubes, torneos, marcas y sesiones privadas para atletas.</p>
+        <a href="https://wa.me/51977370932?text=Hola%20Fabrizio,%20vi%20tu%20p%C3%A1gina%20web%20y%20me%20gustar%C3%ADa%20cotizar%20una%20cobertura%20fotogr%C3%A1fica." target="_blank" class="btn">Escríbeme por WhatsApp</a>
+    </section>
+
+    <section class="social-section">
+        <p>Sígueme en mis redes</p>
+        <div class="social-links">
+            <a href="https://www.instagram.com/fabrizio_salazar07?igsh=eWYzcHVhdnlxOGdy" target="_blank" class="social-icon" title="Instagram">
+                <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+            <a href="https://www.facebook.com/share/14Y2RcEqd8J/?mibextid=wwXIfr" target="_blank" class="social-icon" title="Facebook">
+                <svg viewBox="0 0 24 24"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></svg>
+            </a>
+        </div>
+    </section>
+
+    <a href="https://wa.me/51977370932?text=Hola%20Fabrizio,%20vi%20tu%20p%C3%A1gina%20web%20y%20me%20gustar%C3%ADa%20más%20información." class="whatsapp-float" target="_blank" title="Hablemos por WhatsApp">
+        <span class="whatsapp-icon">WA</span>
+    </a>
+
+    <footer>
+        <p>&copy; 2026 Fabrizio Content. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
